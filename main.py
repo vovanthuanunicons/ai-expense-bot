@@ -134,7 +134,7 @@ def root():
 def health():
     return {"status": "ok"}
 
-@app.post(f"/telegram/webhook/{WEBHOOK_SECRET}")
+@app.post(f"/telegram/webhook/{mysecret123}")
 async def telegram_webhook(update: TelegramUpdate, request: Request):
     body = await request.json()
     msg = body.get("message") or body.get("edited_message")
