@@ -126,6 +126,14 @@ def sum_period(chat_id: str, period: str):
 def health():
     return {"status": "ok"}
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post(f"/telegram/webhook/{WEBHOOK_SECRET}")
 async def telegram_webhook(update: TelegramUpdate, request: Request):
     body = await request.json()
